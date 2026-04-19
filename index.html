@@ -65,9 +65,12 @@
             font-display: swap;
         }
 
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
+        /* Estética de Scrollbar para PC */
+        ::-webkit-scrollbar { height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
         .animate-fade-in {
             animation: fadeIn 0.3s ease-in-out both;
         }
@@ -257,7 +260,7 @@
                     card.style.animationDelay = `${idx * 0.05}s`;
 
                     const carousel = document.createElement('div');
-                    carousel.className = "flex overflow-x-auto snap-x hide-scrollbar";
+                    carousel.className = "flex overflow-x-auto snap-x";
                     
                     item.plans.forEach(plan => {
                         const slide = document.createElement('div');
@@ -266,13 +269,13 @@
                         const isMain = plan.type === 'A';
                         const badgeColor = isMain ? (state.tab === 'Natura' ? 'bg-brand-orange' : 'bg-avon-primary') : 'bg-gray-800';
                         
-                        let quotaText = "Consultar zona";
+                        let quotaText = "Consultar gerencia";
                         let quotaClass = "text-text-mut";
                         if (state.gerenciaId) {
                             const stock = db.cuotas[state.gerenciaId]?.[plan.cod];
                             if (stock !== undefined) {
-                                quotaText = stock > 0 ? `Disponibles: ${stock}` : "Sin Stock";
-                                quotaClass = stock > 0 ? (state.tab === 'Natura' ? 'text-brand-orange font-bold' : 'text-avon-primary font-bold') : "text-red-500 font-bold";
+                                quotaText = stock > 0 ? `Disponibles: ${stock} unidades` : "No disponible";
+                                quotaClass = stock > 0 ? (state.tab === 'Natura' ? 'text-brand-orange font-bold' : 'text-avon-primary font-bold') : "text-[#B91C1C] font-extrabold";
                             } else {
                                 quotaText = "Sin límite";
                                 quotaClass = "text-green-600 font-bold";
@@ -316,8 +319,9 @@
         }
 
         function updateLastUpdate(isoDate) {
-            const date = isoDate ? new Date(isoDate) : new Date();
-            document.getElementById('last-update').textContent = date.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' }) + ' hs';
+            const d = isoDate ? new Date(isoDate) : new Date();
+            const fmt = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()} ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
+            document.getElementById('last-update').textContent = fmt;
         }
 
         window.onload = init;
