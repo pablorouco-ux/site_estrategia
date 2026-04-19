@@ -282,13 +282,22 @@
                             }
                         }
 
+                        const imgPath = getImg(item.marca, plan.cod, plan.type);
+                        
                         slide.innerHTML = `
                             <div class="relative mb-4">
                                 <span class="absolute top-2 left-2 z-10 ${badgeColor} text-white text-[9px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-sm">
                                     ${isMain ? 'Original' : 'Alternativa ' + plan.type}
                                 </span>
+
+                                <!-- Botón Descarga -->
+                                <a href="${imgPath}" download="${plan.cod}_${plan.desc}" 
+                                   class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full text-text-main shadow-sm hover:bg-white transition-colors cursor-pointer">
+                                    <i data-lucide="download" class="w-4 h-4"></i>
+                                </a>
+
                                 <div class="aspect-square bg-brand-gray rounded-xl flex items-center justify-center p-6 border border-gray-50">
-                                    <img src="${getImg(item.marca, plan.cod, plan.type)}" 
+                                    <img src="${imgPath}" 
                                          onerror="this.src='https://placehold.co/400x400/F4F4F4/9CA3AF?text=Próximamente'" 
                                          class="max-w-full max-h-full object-contain mix-blend-multiply">
                                 </div>
