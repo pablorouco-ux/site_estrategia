@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-04-19T10:18:50Z",
+    "updatedAt":  "2026-04-19T10:52:01Z",
     "site":  [
                  {
                      "plans":  [
@@ -255,26 +255,6 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Padres 2026 -  CPV Bolsas Pequeñas Exc SH",
-                                       "cod":  "264993"
-                                   }
-                               ],
-                     "marca":  "Natura"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Padres 2026 -  CPV Bolsas Medianas Exc SH",
-                                       "cod":  "264997"
-                                   }
-                               ],
-                     "marca":  "Natura"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
                                        "desc":  "Padres 2026 - Ekos manos",
                                        "cod":  "251994"
                                    }
@@ -407,26 +387,6 @@
                                        "type":  "A",
                                        "desc":  "Exclusivo SH: Avon Care Manos",
                                        "cod":  "257088"
-                                   }
-                               ],
-                     "marca":  "Avon"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Exclusivo SH: Kit Bolsas Chicas",
-                                       "cod":  "242323"
-                                   }
-                               ],
-                     "marca":  "Avon"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Exclusivo SH: Kit Bolsas Grandes",
-                                       "cod":  "242348"
                                    }
                                ],
                      "marca":  "Avon"
