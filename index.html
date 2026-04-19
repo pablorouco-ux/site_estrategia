@@ -238,6 +238,43 @@
             return `./imagenes/${folder}/${cod}.jpg`;
         }
 
+        async function shareImage(url, cod, desc) {
+            const fileName = `${cod}_${desc.replace(/[^a-z0-9]/gi, '_')}.jpg`;
+            
+            try {
+                // Intentar usar Navigator Share (Mobile)
+                if (navigator.canShare && navigator.share) {
+                    const response = await fetch(url);
+                    const blob = await response.blob();
+                    const file = new File([blob], fileName, { type: "image/jpeg" });
+
+                    if (navigator.canShare({ files: [file] })) {
+                        await navigator.share({
+                            files: [file],
+                            title: desc,
+                            text: `Mira este producto: ${desc} (Cód: ${cod})`
+                        });
+                        return;
+                    }
+                }
+                
+                // Fallback: Descarga tradicional (Desktop)
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } catch (err) {
+                console.error('Error al compartir:', err);
+                // Si falla el Share por permisos de archivo, intentamos descarga normal
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = fileName;
+                a.click();
+            }
+        }
+
         function render() {
             const grid = document.getElementById('product-grid');
             const empty = document.getElementById('empty-state');
@@ -290,11 +327,11 @@
                                     ${isMain ? 'Original' : 'Alternativa ' + plan.type}
                                 </span>
 
-                                <!-- Botón Descarga -->
-                                <a href="${imgPath}" download="${plan.cod}_${plan.desc}" 
+                                <!-- Botón Compartir Inteligente -->
+                                <button onclick="shareImage('${imgPath}', '${plan.cod}', '${plan.desc}')" 
                                    class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full text-text-main shadow-sm hover:bg-white transition-colors cursor-pointer">
-                                    <i data-lucide="download" class="w-4 h-4"></i>
-                                </a>
+                                    <i data-lucide="share-2" class="w-4 h-4"></i>
+                                </button>
 
                                 <div class="aspect-square bg-brand-gray rounded-xl flex items-center justify-center p-6 border border-gray-50">
                                     <img src="${imgPath}" 
