@@ -321,7 +321,9 @@
                         }
 
                         const actionIcon = isMobile ? 'share-2' : 'download';
-
+                        const imgPath = getImg(item.marca, plan.cod, plan.type);
+                        const safeDesc = plan.desc.replace(/'/g, "\\'");
+                        
                         slide.innerHTML = `
                             <div class="relative mb-4">
                                 <span class="absolute top-2 left-2 z-10 ${badgeColor} text-white text-[9px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-sm">
@@ -329,7 +331,7 @@
                                 </span>
 
                                 <!-- Botón Acción Dinámico -->
-                                <button onclick="shareImage('${imgPath}', '${plan.cod}', '${plan.desc}')" 
+                                <button onclick="shareImage('${imgPath}', '${plan.cod}', '${safeDesc}')" 
                                    title="${isMobile ? 'Compartir' : 'Descargar'}"
                                    class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full text-text-main shadow-sm hover:bg-white transition-colors cursor-pointer">
                                     <i data-lucide="${actionIcon}" class="w-4 h-4"></i>
