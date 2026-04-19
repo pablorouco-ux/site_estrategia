@@ -240,10 +240,11 @@
 
         async function shareImage(url, cod, desc) {
             const fileName = `${cod}_${desc.replace(/[^a-z0-9]/gi, '_')}.jpg`;
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             
             try {
-                // Intentar usar Navigator Share (Mobile)
-                if (navigator.canShare && navigator.share) {
+                // Si es movil y soporta share, usamos el menu nativo
+                if (isMobile && navigator.canShare && navigator.share) {
                     const response = await fetch(url);
                     const blob = await response.blob();
                     const file = new File([blob], fileName, { type: "image/jpeg" });
@@ -258,7 +259,7 @@
                     }
                 }
                 
-                // Fallback: Descarga tradicional (Desktop)
+                // Fallback / Desktop: Descarga tradicional
                 const a = document.createElement('a');
                 a.href = url;
                 a.download = fileName;
@@ -266,8 +267,7 @@
                 a.click();
                 document.body.removeChild(a);
             } catch (err) {
-                console.error('Error al compartir:', err);
-                // Si falla el Share por permisos de archivo, intentamos descarga normal
+                console.error('Error en la accion:', err);
                 const a = document.createElement('a');
                 a.href = url;
                 a.download = fileName;
@@ -276,6 +276,7 @@
         }
 
         function render() {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             const grid = document.getElementById('product-grid');
             const empty = document.getElementById('empty-state');
             grid.innerHTML = '';
@@ -319,18 +320,19 @@
                             }
                         }
 
-                        const imgPath = getImg(item.marca, plan.cod, plan.type);
-                        
+                        const actionIcon = isMobile ? 'share-2' : 'download';
+
                         slide.innerHTML = `
                             <div class="relative mb-4">
                                 <span class="absolute top-2 left-2 z-10 ${badgeColor} text-white text-[9px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-sm">
                                     ${isMain ? 'Original' : 'Alternativa ' + plan.type}
                                 </span>
 
-                                <!-- Botón Compartir Inteligente -->
+                                <!-- Botón Acción Dinámico -->
                                 <button onclick="shareImage('${imgPath}', '${plan.cod}', '${plan.desc}')" 
+                                   title="${isMobile ? 'Compartir' : 'Descargar'}"
                                    class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full text-text-main shadow-sm hover:bg-white transition-colors cursor-pointer">
-                                    <i data-lucide="share-2" class="w-4 h-4"></i>
+                                    <i data-lucide="${actionIcon}" class="w-4 h-4"></i>
                                 </button>
 
                                 <div class="aspect-square bg-brand-gray rounded-xl flex items-center justify-center p-6 border border-gray-50">
