@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-04-20T20:04:02Z",
+    "updatedAt":  "2026-04-20T20:21:46Z",
     "site":  [
                  {
                      "plans":  [
@@ -277,6 +277,11 @@
                                        "type":  "A",
                                        "desc":  "Exclusivo SH: TTA",
                                        "cod":  "257214"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Exclusivo SH: TTA Everlasting",
+                                       "cod":  "258493"
                                    }
                                ],
                      "marca":  "Avon"
@@ -357,6 +362,11 @@
                                        "type":  "A",
                                        "desc":  "Exclusivo SH: Avon Care Rutina",
                                        "cod":  "257085"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Exclusivo SH: Avon Care",
+                                       "cod":  "257598"
                                    }
                                ],
                      "marca":  "Avon"
