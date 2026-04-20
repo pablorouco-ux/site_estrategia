@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-04-20T18:48:36Z",
+    "updatedAt":  "2026-04-20T18:56:01Z",
     "site":  [
                  {
                      "plans":  [
@@ -405,7 +405,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Padres 300km Electric (edt + roll + bolsa chica)",
+                                       "desc":  "Estuche Padres 300km Electric",
                                        "cod":  "252648"
                                    }
                                ],
@@ -415,17 +415,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Padres 300km Quantum (edt + bolsa chica)",
-                                       "cod":  "252649"
-                                   }
-                               ],
-                     "marca":  "Avon"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Estuche Padres 300km Turbo (edt + Mini + Hbw + bolsa chica)",
+                                       "desc":  "Estuche Padres 300km Turbo",
                                        "cod":  "252646"
                                    }
                                ],
@@ -435,17 +425,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Padres Musk Freeze (edt + bolsa chica)",
-                                       "cod":  "252647"
-                                   }
-                               ],
-                     "marca":  "Avon"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Estuche Padres Wild Country Original (edt + roll + deo + bolsa grande)",
+                                       "desc":  "Estuche Padres Wild Country Original",
                                        "cod":  "264519"
                                    }
                                ],
@@ -455,7 +435,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Padres Exclusive Admirable (edt + roll + bolsa chica)",
+                                       "desc":  "Estuche Padres Exclusive Admirable",
                                        "cod":  "252642"
                                    }
                                ],
@@ -465,7 +445,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Padres Exclusive Original (edt + deo+ bolsa chica)",
+                                       "desc":  "Estuche Padres Exclusive Complicity",
                                        "cod":  "252639"
                                    }
                                ],
@@ -475,17 +455,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Padres Passion Dance (edt + bolsa chica)",
-                                       "cod":  "252640"
-                                   }
-                               ],
-                     "marca":  "Avon"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Estuche Padres Legacy (edt + roll + deo + bolsa grande)",
+                                       "desc":  "Estuche Padres Legacy",
                                        "cod":  "264518"
                                    }
                                ],
@@ -495,7 +465,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Padres Trekking (edt + roll + deo bolsa grande)",
+                                       "desc":  "Estuche Padres Trekking",
                                        "cod":  "252644"
                                    }
                                ],
@@ -505,17 +475,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Padres Segno Impact (edt + bolsa chica)",
-                                       "cod":  "252645"
-                                   }
-                               ],
-                     "marca":  "Avon"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Estuche Attraction Game Him (edt + ass + bolsa chica)",
+                                       "desc":  "Estuche Attraction Game Him",
                                        "cod":  "264527"
                                    }
                                ],
@@ -525,7 +485,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Black suede Original (edt + hbw + rollon)",
+                                       "desc":  "Estuche Black suede Original",
                                        "cod":  "265358"
                                    }
                                ],
@@ -535,7 +495,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Black suede Secret(edt + rollon + bolsa chica)",
+                                       "desc":  "Estuche Black suede Secret",
                                        "cod":  "264523"
                                    }
                                ],
@@ -545,7 +505,7 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Estuche Black suede Charm (edt + HBW + bolsa chica)",
+                                       "desc":  "Estuche Black suede Charm",
                                        "cod":  "264522"
                                    }
                                ],
