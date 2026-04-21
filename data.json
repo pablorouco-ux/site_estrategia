@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-04-21T15:39:10Z",
+    "updatedAt":  "2026-04-21T16:26:09Z",
     "site":  [
                  {
                      "plans":  [
@@ -17,6 +17,11 @@
                                        "type":  "A",
                                        "desc":  "Padres 2026 - Urbe mini",
                                        "cod":  "252000"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Regalo Kaiak Urbe II",
+                                       "cod":  "258494"
                                    }
                                ],
                      "marca":  "Natura"
@@ -77,6 +82,11 @@
                                        "type":  "A",
                                        "desc":  "Padres 2026 - Essencial Exclusivo",
                                        "cod":  "251988"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Regalo Essencial Exclusivo Masculino",
+                                       "cod":  "227264"
                                    }
                                ],
                      "marca":  "Natura"
@@ -107,6 +117,11 @@
                                        "type":  "A",
                                        "desc":  "Padres 2026 - Homem barba SI",
                                        "cod":  "252001"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Regalo Homem III",
+                                       "cod":  "227250"
                                    }
                                ],
                      "marca":  "Natura"
@@ -177,6 +192,11 @@
                                        "type":  "A",
                                        "desc":  "Padres 2026 - Homem Cabellos",
                                        "cod":  "251984"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Regalo Homem Cabello II",
+                                       "cod":  "227259"
                                    }
                                ],
                      "marca":  "Natura"
@@ -197,6 +217,11 @@
                                        "type":  "A",
                                        "desc":  "Padres 2026 - Ekos Copaiba",
                                        "cod":  "262753"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Regalo Ekos Ryos Chuva",
+                                       "cod":  "226946"
                                    }
                                ],
                      "marca":  "Natura"
@@ -312,6 +337,11 @@
                                        "type":  "A",
                                        "desc":  "Exclusivo SH: Combinado Ganadores",
                                        "cod":  "257231"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Exclusivo SH: Perfumería II",
+                                       "cod":  "258476"
                                    }
                                ],
                      "marca":  "Avon"
@@ -362,11 +392,6 @@
                                        "type":  "A",
                                        "desc":  "Exclusivo SH: Avon Care Rutina",
                                        "cod":  "257085"
-                                   },
-                                   {
-                                       "type":  "B",
-                                       "desc":  "Exclusivo SH: Avon Care",
-                                       "cod":  "257598"
                                    }
                                ],
                      "marca":  "Avon"
