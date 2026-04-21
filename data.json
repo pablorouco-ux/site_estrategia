@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-04-21T19:09:04Z",
+    "updatedAt":  "2026-04-21T19:46:19Z",
     "site":  [
                  {
                      "plans":  [
@@ -17,6 +17,11 @@
                                        "type":  "A",
                                        "desc":  "Padres 2026 - Urbe mini",
                                        "cod":  "252000"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Regalo Kaiak Urbe II",
+                                       "cod":  "258494"
                                    }
                                ],
                      "marca":  "Natura"
@@ -177,6 +182,11 @@
                                        "type":  "A",
                                        "desc":  "Padres 2026 - Homem Cabellos",
                                        "cod":  "251984"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Regalo Homem Cabello II",
+                                       "cod":  "227259"
                                    }
                                ],
                      "marca":  "Natura"
