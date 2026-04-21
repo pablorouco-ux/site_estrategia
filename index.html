@@ -312,10 +312,10 @@
                         if (state.gerenciaId) {
                             const stock = db.cuotas[state.gerenciaId]?.[plan.cod];
                             if (stock !== undefined) {
-                                quotaText = stock > 0 ? `Disponibles: ${stock} unidades` : "No disponible";
+                                quotaText = stock > 0 ? `Disponibles: ${stock} unidades` : "SIN STOCK";
                                 quotaClass = stock > 0 ? (state.tab === 'Natura' ? 'text-brand-orange font-bold' : 'text-avon-primary font-bold') : "text-[#B91C1C] font-extrabold";
                             } else {
-                                quotaText = "Sin límite";
+                                quotaText = "CON STOCK";
                                 quotaClass = "text-green-600 font-bold";
                             }
                         }
@@ -326,9 +326,11 @@
                         
                         slide.innerHTML = `
                             <div class="relative mb-4">
-                                <span class="absolute top-2 left-2 z-10 ${badgeColor} text-white text-[9px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-sm">
-                                    ${isMain ? 'Original' : 'Alternativa ' + plan.type}
-                                </span>
+                                ${!isMain ? `
+                                    <span class="absolute top-2 left-2 z-10 ${badgeColor} text-white text-[9px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-sm">
+                                        Alternativa ${plan.type}
+                                    </span>
+                                ` : ''}
 
                                 <!-- Botón Acción Dinámico -->
                                 <button onclick="shareImage('${imgPath}', '${plan.cod}', '${safeDesc}')" 
