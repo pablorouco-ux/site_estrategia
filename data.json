@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-04-22T14:23:10Z",
+    "updatedAt":  "2026-04-22T21:01:17Z",
     "site":  [
                  {
                      "plans":  [
@@ -302,6 +302,11 @@
                                        "type":  "A",
                                        "desc":  "Exclusivo SH: Black Suede",
                                        "cod":  "257287"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Exclusivo SH: Black Suede",
+                                       "cod":  "261213"
                                    }
                                ],
                      "marca":  "Avon"
