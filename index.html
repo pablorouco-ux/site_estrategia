@@ -60,6 +60,7 @@
             font-display: swap;
         }
 
+        /* Estética de Scrollbar para PC */
         ::-webkit-scrollbar { height: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
@@ -73,6 +74,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Snap behavior for horizontal scroll */
         .snap-x { scroll-snap-type: x mandatory; }
         .snap-start { scroll-snap-align: start; }
     </style>
@@ -88,24 +90,7 @@
 
 <body class="bg-ui-app text-text-main font-sans antialiased min-h-screen flex flex-col">
 
-    <div id="cycle-modal" class="fixed inset-0 z-[100] bg-gradient-to-br from-[#2E0814] via-[#121212] to-[#3B1422] flex flex-col justify-center items-center p-4 transition-all duration-500">
-        
-        <div class="relative bg-white/95 backdrop-blur-md p-8 sm:p-10 rounded-[2.5rem] shadow-2xl border border-white/10 max-w-md w-full text-center animate-fade-in">
-            <h2 class="text-3xl font-bold text-text-main mb-2 tracking-tight">¡Hola!</h2>
-            <p class="text-text-sec text-sm mb-8 leading-relaxed">¿En qué ciclo comercial te encontrás?</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <button onclick="selectInitialCiclo('C09')" class="py-4 bg-brand-orange hover:bg-brand-orangeHover text-white font-bold rounded-2xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer text-sm uppercase tracking-wider">
-                    Ciclo 9
-                </button>
-                <button onclick="selectInitialCiclo('C10')" class="py-4 bg-gray-800 hover:bg-gray-900 text-white font-bold rounded-2xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer text-sm uppercase tracking-wider">
-                    Ciclo 10
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <header id="main-header" class="bg-white border-b border-gray-100 shadow-soft sticky top-0 z-50 invisible">
+    <header class="bg-white border-b border-gray-100 shadow-soft sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-5 relative">
             <div class="flex-1 w-full">
                 <div class="flex items-center gap-3">
@@ -120,30 +105,15 @@
                 </p>
             </div>
             
-            <div class="w-full md:w-auto flex flex-col sm:flex-row gap-4">
-                <div class="w-full sm:w-32">
-                    <label for="ciclo-select" class="block text-[10px] font-bold uppercase tracking-widest text-text-sec mb-1.5 pl-1">
-                        Ciclo
-                    </label>
-                    <div class="relative">
-                        <select id="ciclo-select" class="w-full appearance-none bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm font-semibold text-text-main focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors cursor-pointer shadow-none">
-                            <option value="C09">Ciclo 9</option>
-                            <option value="C10">Ciclo 10</option>
-                        </select>
-                        <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-sec pointer-events-none stroke-[2.5]"></i>
-                    </div>
-                </div>
-
-                <div class="w-full sm:w-64">
-                    <label for="gerencia-select" class="block text-[10px] font-bold uppercase tracking-widest text-text-sec mb-1.5 pl-1">
-                        Gerencia de Ventas
-                    </label>
-                    <div class="relative">
-                        <select id="gerencia-select" class="w-full appearance-none bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm font-semibold text-text-main focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors cursor-pointer shadow-none">
-                            <option value="">Seleccionar Gerencia...</option>
-                        </select>
-                        <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-sec pointer-events-none stroke-[2.5]"></i>
-                    </div>
+            <div class="w-full md:w-80">
+                <label for="gerencia-select" class="block text-[10px] font-bold uppercase tracking-widest text-text-sec mb-1.5 pl-1">
+                    Gerencia de Ventas
+                </label>
+                <div class="relative">
+                    <select id="gerencia-select" class="w-full appearance-none bg-brand-gray border border-gray-200 rounded-xl px-4 py-3 text-sm font-semibold text-text-main focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors cursor-pointer shadow-none">
+                        <option value="">Cargando gerencias...</option>
+                    </select>
+                    <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-sec pointer-events-none stroke-[2.5]"></i>
                 </div>
             </div>
         </div>
@@ -154,7 +124,7 @@
         </div>
     </header>
 
-    <main id="main-content" class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 invisible">
+    <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8">
         
         <div id="loading" class="flex flex-col justify-center items-center py-20">
             <div id="spinner" class="animate-spin rounded-full h-12 w-12 border-[3px] border-brand-gray border-t-brand-orange"></div>
@@ -165,292 +135,3 @@
             <div class="bg-white p-6 rounded-3xl shadow-soft border border-gray-100 mb-5">
                 <i data-lucide="search-x" class="w-12 h-12 text-text-mut stroke-[1.5]"></i>
             </div>
-            <h3 class="text-xl font-bold text-text-main mb-2 tracking-tight">Sin resultados</h3>
-            <p class="text-text-sec text-sm leading-relaxed max-w-md">No encontramos productos para esta selección. Prueba cambiando la marca o la gerencia.</p>
-        </div>
-
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hidden"></div>
-
-    </main>
-
-    <footer id="main-footer" class="bg-white border-t border-gray-100 py-8 text-center px-4 invisible">
-        <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-text-mut">
-            &copy; <span id="year"></span> Natura &Co <span class="mx-2 opacity-30">|</span> Bien Estar Bien
-        </p>
-    </footer>
-
-    <script>
-        let db = {
-            site: [],
-            gerencias: [],
-            cuotas: {}
-        };
-        
-        let state = {
-            tab: 'Natura',
-            gerenciaId: '',
-            ciclo: 'C09'
-        };
-
-        function init() {
-            lucide.createIcons();
-            setupCicloSelect();
-        }
-
-        function setupCicloSelect() {
-            const sel = document.getElementById('ciclo-select');
-            sel.onchange = async e => {
-                state.ciclo = e.target.value;
-                await loadData();
-            };
-        }
-
-        async function selectInitialCiclo(cicloId) {
-            state.ciclo = cicloId;
-            document.getElementById('ciclo-select').value = cicloId;
-            
-            document.getElementById('cycle-modal').classList.add('opacity-0', 'pointer-events-none');
-            document.getElementById('main-header').classList.remove('invisible');
-            document.getElementById('main-content').classList.remove('invisible');
-            document.getElementById('main-footer').classList.remove('invisible');
-            
-            setTimeout(() => {
-                document.getElementById('cycle-modal').classList.add('hidden');
-            }, 500);
-
-            await loadData();
-        }
-
-        async function loadData() {
-            try {
-                document.getElementById('loading').classList.remove('hidden');
-                document.getElementById('product-grid').classList.add('hidden');
-                
-                const fileName = state.ciclo === 'C09' ? './data.json' : `./data_${state.ciclo}.json`;
-                
-                const response = await fetch(fileName);
-                if (!response.ok) throw new Error('No se encontró el archivo de datos');
-                
-                const data = await response.json();
-                db.site = data.site || [];
-                db.gerencias = data.gerencias || [];
-                db.cuotas = data.cuotas || {};
-
-                updateLastUpdate(data.updatedAt);
-                populateGerencias();
-                
-                document.getElementById('loading').classList.add('hidden');
-                render();
-
-            } catch (err) {
-                console.error(err);
-                document.getElementById('loading').classList.add('hidden');
-                Swal.fire({
-                    title: 'Sincronización pendiente',
-                    text: `Aún no se han cargado los datos de Excel para el ${state.ciclo}.`,
-                    icon: 'info',
-                    confirmButtonColor: '#FF6B00',
-                    customClass: { popup: 'rounded-3xl' }
-                });
-            }
-        }
-
-        function populateGerencias() {
-            const sel = document.getElementById('gerencia-select');
-            const currentSel = state.gerenciaId;
-            sel.innerHTML = '<option value="">Seleccionar Gerencia...</option>';
-            db.gerencias.sort((a,b) => a.name.localeCompare(b.name)).forEach(g => {
-                const opt = document.createElement('option');
-                opt.value = g.id;
-                opt.textContent = g.name;
-                if(g.id === currentSel) opt.selected = true;
-                sel.appendChild(opt);
-            });
-            sel.onchange = e => { state.gerenciaId = e.target.value; render(); };
-        }
-
-        function setTab(t) {
-            state.tab = t;
-            const isNatura = t === 'Natura';
-            
-            const btnN = document.getElementById('tab-natura');
-            const btnA = document.getElementById('tab-avon');
-            const title = document.getElementById('brand-title');
-            
-            if(isNatura) {
-                btnN.className = "py-3 px-1 text-sm font-bold uppercase tracking-widest text-brand-orange border-b-[3px] border-brand-orange transition-all duration-300";
-                btnA.className = "py-3 px-1 text-sm font-bold uppercase tracking-widest text-text-mut border-b-[3px] border-transparent hover:text-avon-primary transition-all duration-300";
-                title.textContent = "Natura";
-                title.className = "text-2xl font-bold tracking-tight text-brand-orange";
-            } else {
-                btnA.className = "py-3 px-1 text-sm font-bold uppercase tracking-widest text-avon-primary border-b-[3px] border-avon-primary transition-all duration-300";
-                btnN.className = "py-3 px-1 text-sm font-bold uppercase tracking-widest text-text-mut border-b-[3px] border-transparent hover:text-brand-orange transition-all duration-300";
-                title.textContent = "Avon";
-                title.className = "text-2xl font-bold tracking-tight text-avon-primary";
-            }
-            render();
-        }
-
-        function getImg(marca, cod) {
-            return `./Imagenes/${marca.trim()}/${state.ciclo}/${cod}.jpg`;
-        }
-
-        function handleImageError(img, marca, cod) {
-            const src = img.src;
-            const brand = marca.trim();
-            
-            if (src.includes(`/${state.ciclo}/${cod}.jpg`)) {
-                img.src = `./Imagenes/${brand}/${state.ciclo}/${cod}.png`;
-            } else if (src.includes(`/${state.ciclo}/${cod}.png`)) {
-                img.src = `./Imagenes/${brand}/${cod}.jpg`;
-            } else if (src.includes(`/${brand}/${cod}.jpg`)) {
-                img.src = `./Imagenes/${brand}/${cod}.png`;
-            } else {
-                img.src = 'https://placehold.co/400x400/F4F4F4/9CA3AF?text=Próximamente';
-                img.onerror = null;
-            }
-        }
-
-        async function shareImage(btn) {
-            const container = btn.closest('.relative');
-            const img = container.querySelector('img');
-            const url = img ? img.src : getImg(state.tab, btn.getAttribute('data-cod'));
-            const cod = btn.getAttribute('data-cod');
-            const desc = btn.getAttribute('data-desc');
-            const fileName = `${cod}_${desc.replace(/[^a-z0-9]/gi, '_')}.jpg`;
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            
-            try {
-                if (isMobile && navigator.canShare && navigator.share) {
-                    const response = await fetch(url);
-                    const blob = await response.blob();
-                    const file = new File([blob], fileName, { type: "image/jpeg" });
-                    if (navigator.canShare({ files: [file] })) {
-                        await navigator.share({ files: [file], title: desc });
-                        return;
-                    }
-                }
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = fileName;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            } catch (err) { console.error(err); }
-        }
-
-        function render() {
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            const grid = document.getElementById('product-grid');
-            const empty = document.getElementById('empty-state');
-            grid.innerHTML = '';
-
-            const filtered = db.site.filter(i => i.marca.trim().toLowerCase() === state.tab.trim().toLowerCase());
-
-            if (filtered.length === 0) {
-                grid.classList.add('hidden');
-                empty.classList.remove('hidden');
-                empty.classList.add('flex');
-            } else {
-                grid.classList.remove('hidden');
-                empty.classList.add('hidden');
-                empty.classList.remove('flex');
-
-                filtered.forEach((item, idx) => {
-                    const card = document.createElement('div');
-                    card.className = "animate-fade-in bg-white rounded-2xl border border-gray-100 shadow-soft hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden";
-                    card.style.animationDelay = `${idx * 0.05}s`;
-
-                    const carousel = document.createElement('div');
-                    carousel.className = "flex overflow-x-auto snap-x";
-                    
-                    item.plans.forEach(plan => {
-                        const slide = document.createElement('div');
-                        slide.className = "min-w-full snap-start p-5 flex flex-col";
-                        const isMain = plan.type === 'A';
-                        const badgeColor = isMain ? (state.tab === 'Natura' ? 'bg-brand-orange' : 'bg-avon-primary') : 'bg-gray-800';
-                        
-                        // MOTOR BUSCADOR DE STOCK SEGURO Y ULTRA-FLEXIBLE 🌟
-                        let quotaText = "Consultar gerencia";
-                        let quotaClass = "text-text-mut";
-                        
-                        if (state.gerenciaId && db.cuotas) { 
-                            const currentGid = String(state.gerenciaId).trim().toLowerCase();
-                            const gerenciaKey = Object.keys(db.cuotas).find(k => String(k).trim().toLowerCase() === currentGid);
-                            
-                            if (gerenciaKey) {
-                                const gerenciaStock = db.cuotas[gerenciaKey];
-                                const searchCod = String(plan.cod).trim();
-                                let stock = undefined;
-                                
-                                if (gerenciaStock) {
-                                    // 1. Intenta coincidencia de texto directa
-                                    if (gerenciaStock[searchCod] !== undefined) {
-                                        stock = gerenciaStock[searchCod];
-                                    } else {
-                                        // 2. Busca limpiando espacios en blanco invisibles
-                                        const foundKey = Object.keys(gerenciaStock).find(k => String(k).trim() === searchCod);
-                                        if (foundKey) {
-                                            stock = gerenciaStock[foundKey];
-                                        } else {
-                                            // 3. Intenta forzar búsqueda como número entero puro
-                                            const searchNum = parseInt(searchCod, 10);
-                                            if (!isNaN(searchNum)) {
-                                                const foundNumKey = Object.keys(gerenciaStock).find(k => parseInt(k, 10) === searchNum);
-                                                if (foundNumKey) stock = gerenciaStock[foundNumKey];
-                                            }
-                                        }
-                                    }
-                                }
-
-                                if (stock !== undefined && stock !== null) {
-                                    const numStock = Number(stock);
-                                    quotaText = numStock > 0 ? `Disponibles: ${numStock} unidades` : "SIN STOCK";
-                                    quotaClass = numStock > 0 ? (state.tab === 'Natura' ? 'text-brand-orange font-bold' : 'text-avon-primary font-bold') : "text-[#B91C1C] font-extrabold";
-                                } else {
-                                    quotaText = "CON STOCK";
-                                    quotaClass = "text-green-600 font-bold";
-                                }
-                            }
-                        }
-
-                        const actionIcon = isMobile ? 'share-2' : 'download';
-                        const safeDesc = plan.desc.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                        
-                        slide.innerHTML = `
-                            <div class="relative mb-4">
-                                ${!isMain ? `<span class="absolute top-2 left-2 z-10 ${badgeColor} text-white text-[9px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-sm">Alt ${plan.type}</span>` : ''}
-                                <button onclick="shareImage(this)" data-cod="${plan.cod}" data-desc="${safeDesc}" title="${isMobile ? 'Compartir' : 'Descargar'}" class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full text-text-main shadow-sm hover:bg-white cursor-pointer">
-                                     <i data-lucide="${actionIcon}" class="w-4 h-4"></i>
-                                </button>
-                                <div class="aspect-square bg-brand-gray rounded-xl flex items-center justify-center p-6 border border-gray-50">
-                                    <img src="${getImg(item.marca, plan.cod)}" onerror="handleImageError(this, '${item.marca.replace(/'/g, "\\'")}', '${plan.cod}')" class="max-w-full max-h-full object-contain mix-blend-multiply">
-                                </div>
-                            </div>
-                            <div class="flex-1 flex flex-col">
-                                <span class="text-[10px] text-text-mut font-bold tracking-widest uppercase mb-1">Cód: ${plan.cod}</span>
-                                <h4 class="text-sm font-bold text-text-main leading-tight mb-4 flex-1 line-clamp-2">${plan.desc}</h4>
-                                <div class="pt-4 border-t border-gray-50 flex items-center justify-between">
-                                    <span class="text-[11px] uppercase tracking-wider ${quotaClass}">${quotaText}</span>
-                                </div>
-                            </div>
-                        `;
-                        carousel.appendChild(slide);
-                    });
-                    card.appendChild(carousel);
-                    grid.appendChild(card);
-                });
-            }
-            lucide.createIcons();
-            document.getElementById('year').textContent = new Date().getFullYear();
-        }
-
-        function updateLastUpdate(isoDate) {
-            const d = isoDate ? new Date(isoDate) : new Date();
-            document.getElementById('last-update').textContent = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()} ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
-        }
-
-        window.onload = init;
-    </script>
-</body>
-</html>
